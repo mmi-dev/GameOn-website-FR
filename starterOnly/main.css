@@ -68,7 +68,7 @@ img {
   border-radius: 15px;
 }
 
-.topnav .icon {
+.topnav a.icon {
   display: none;
 }
 
@@ -351,6 +351,10 @@ input[data-error]::after {
   color: #fff;
   cursor: pointer;
   border: 0;
+}
+
+.btn-submit:disabled {
+  background: #e2adb5;
 }
 
 /* custom select styles */
