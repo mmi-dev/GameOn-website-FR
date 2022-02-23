@@ -186,6 +186,7 @@ main {
 .modal-body {
   padding: 15px 8%;
   margin: 15px auto;
+  position: relative;
 }
 
 label {
@@ -327,6 +328,7 @@ input[data-error]::after {
   opacity: 1;
   cursor: pointer;
   transform: scale(0.7);
+  z-index: 5;
 }
 
 .close:before,
@@ -348,7 +350,7 @@ input[data-error]::after {
 }
 
 .btn-submit,
-.btn-signup {
+.btn-signup, .btn-close {
   background: #fe142f;
   display: block;
   margin: 0 auto;
@@ -371,7 +373,7 @@ input[data-error]::after {
   width:200px;
   left:50%;
   margin-left: -100px;
-  bottom: 80px;
+  bottom: 68px;
   padding: 20px 10px;
   background: #fe142f;
   font-size: .6em;
@@ -401,10 +403,39 @@ input[data-error]::after {
   color: #fe142f;
 }
 
-#submit:hover:disabled ~ span, #alert.alert-show{
+#submitBtn:hover:disabled ~ span, #alert.alert-show{
   content: "test";
   z-index:2;
   opacity:1;
+}
+
+/* confirmation message */
+#confirmation{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height:100%;
+  width:100%;
+  visibility: hidden;
+  transition: all 0.5s;
+}
+
+#confirmation-msg{
+  position: relative;
+  display: inline-block;
+  font-size: 36px;
+  padding: 0 25px;
+  top: 40%;
+  width:100%;
+  text-align: center;
+}
+
+#confirmation-btn{
+  position: absolute;
+  left:50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  bottom: 15px;
 }
 
 /* custom select styles */

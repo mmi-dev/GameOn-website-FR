@@ -1,7 +1,8 @@
 // DOM Elements
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
-const modalCloseBtn = document.querySelectorAll(".close");
+const modalCloseBtn = document.querySelectorAll(".closeMsg");
+let successStatus =  new URLSearchParams(document.location.search).get("submited");
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -13,8 +14,36 @@ function launchModal() {
 
 // close modal event
 modalCloseBtn.forEach((btn) => btn.addEventListener("click", closeModal));
+// modalCloseMsgBtn.forEach((btn) => btn.addEventListener("click", closeModal));
+// modalConfirmationCloseBtn.addEventListener("click", closeModal);
 
 // close modal form
 function closeModal() {
   modalbg.style.display = "none";
+  if(successStatus ==  "success"){
+    // restore modal form
+    document.getElementById("confirmation").style.visibility = "hidden";
+    form.style.opacity = 1;
+    form.style.visibility = "visible";
+    // refresh window
+    window.location.href="index.html"
+  }
 }
+
+// confirmation message on successfull submit
+function confirmationModal() {
+  // hidde form
+  form.style.opacity = 0;
+  form.style.visibility = "hidden";
+  // confirmation message show
+  document.getElementById("confirmation").style.visibility = "visible";
+  
+}
+
+// control submit status on load to shox confirmation message
+window.onload=function(){
+  if(successStatus == "success"){
+    confirmationModal();
+    launchModal();
+  }
+};
