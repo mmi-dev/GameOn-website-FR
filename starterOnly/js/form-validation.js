@@ -33,7 +33,7 @@ var birthdateMsg1 = "Vous devez entrer votre date de naissance."; // field not r
 var birthdateMsg2 = "La date de naissance n'est pas valide.";
 
 var quantityMsg1 = "Vous devez enter un nombre."; // field not required 
-var quantityMsg2 = "le nombre doit être positif";
+var quantityMsg2 = "le nombre doit être compris entre 0 et 99";
 
 var locationMsg = "vous devez selectionner un tournoi";
 
