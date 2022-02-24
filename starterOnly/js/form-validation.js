@@ -1,5 +1,6 @@
-// form variables definitions
-let reserveForm = document.getElementById("reserve");
+// form variables
+
+var form  = document.getElementById("reserve");
 
 var firstName = document.getElementById("first");
 var lastName = document.getElementById("last");
@@ -10,25 +11,31 @@ var radioContainer = document.getElementById("radio");
 var locationName = document.getElementsByName("location");
 var conditionsAgreement = document.getElementById("checkbox1");
 var eventsInfo = document.getElementById("checkbox2");
-var submitBtn = document.getElementById("submit");
-var errorAlert = document.getElementById("alert");
-var alertBase = errorAlert.innerHTML
+var submitForm = document.getElementById("submitBtn");
 
-var form  = document.getElementsByTagName('form')[0];
+var errorAlert = document.getElementById("alert");
+var alertBase = errorAlert.innerHTML;
+
+var validation = ""; // validation state
 
 // error messages
+
 var firstNameMsg1 = "Vous devez entrer votre prénom.";
 var firstNameMsg2 = "Le prénom doit comporter au minimum 2 caractères";
+
 var lastNameMsg1 = "vous devez entrer votre nom";
 var lastNameMsg2 = "Le nom doit comporter au minimum 2 caractères";
-var emailMsg1 = "Vous devez entrer votre email.";
+
+var emailMsg1 = "Vous devez entrer votre email."; // field not required 
 var emailMsg2 = "L'email n'est pas valide";
-var birthdateMsg1 = "Vous devez entrer votre date de naissance.";
+
+var birthdateMsg1 = "Vous devez entrer votre date de naissance."; // field not required 
 var birthdateMsg2 = "La date de naissance n'est pas valide.";
-var quantityMsg1 = "";
+
+var quantityMsg1 = "Vous devez enter un nombre."; // field not required 
 var quantityMsg2 = "le nombre doit être positif";
+
 var locationMsg = "vous devez selectionner un tournoi";
-var validation = "";
 
 // input validity test
 function inputValidation (e, msg1, msg2){
@@ -43,7 +50,6 @@ function inputValidation (e, msg1, msg2){
             e.parentElement.removeAttribute("data-error");
         }
     }
-
     else if(!e.value.match(e.getAttribute("pattern"))){
         e.parentElement.setAttribute("data-error-visible","true");
         e.parentElement.setAttribute("data-error",msg2);
@@ -56,29 +62,29 @@ function inputValidation (e, msg1, msg2){
 };
 
 // first name validation on change
- firstName.addEventListener('change', function(){
-     inputValidation(firstName, firstNameMsg1, firstNameMsg2);
-    });
+firstName.addEventListener('change', function(){
+    inputValidation(firstName, firstNameMsg1, firstNameMsg2);
+});
 
 // last name validation on change
 lastName.addEventListener('change', function(){
     inputValidation(lastName, lastNameMsg1, lastNameMsg2);
-   });
+});
 
-   // email validation on change
-   email.addEventListener('change', function(){
-     inputValidation(email, emailMsg1, emailMsg2);
-    });
+// email validation on change
+email.addEventListener('change', function(){
+    inputValidation(email, emailMsg1, emailMsg2);
+});
 
-    // birthdate validation on change
-    birthdate.addEventListener('change', function(){
-        inputValidation(birthdate, birthdateMsg1, birthdateMsg2);
-    });
+// birthdate validation on change
+birthdate.addEventListener('change', function(){
+    inputValidation(birthdate, birthdateMsg1, birthdateMsg2);
+});
 
-  // number name validation on change
-  quantity.addEventListener('change', function(){
+// number name validation on change
+quantity.addEventListener('change', function(){
     inputValidation(quantity, quantityMsg1, quantityMsg2);
-   });
+});
 
 // location name validation
 function radioChecked (){
@@ -102,11 +108,10 @@ function radioChecked (){
     }
 };
 
-// form submit validation
-submitBtn.addEventListener("click", async function(e) {
-    // validation contrtol
-
-    validation = true;
+// form validation
+function validate(){
+    // validation state reset form
+    validation=true;
     // check fields
     radioChecked();
     inputValidation(firstName, firstNameMsg1, firstNameMsg2);
@@ -116,22 +121,19 @@ submitBtn.addEventListener("click", async function(e) {
     inputValidation(quantity, quantityMsg1, quantityMsg2);
     // errors control
     if(validation == false){
-        e.preventDefault();
         errorAlert.innerHTML = "tous les champs doivent être valides";
         errorAlert.classList.add("alert-show");
-        await new Promise(r => setTimeout(r, 3000));
-        errorAlert.classList.remove("alert-show");
-        errorAlert.innerHTML = alertBase;
         return false;
     }
     else{
         // form submit
+        document.getElementById("submited").value = "success";
         return true;
     }
-  }, false);
+  };
 
-// form validated event
-function validate(e) {
-   // confirmation message
-};
- 
+// suppress & reset error alert
+form.addEventListener('click', function(){
+    errorAlert.classList.remove("alert-show");
+    errorAlert.innerHTML = alertBase;
+});
