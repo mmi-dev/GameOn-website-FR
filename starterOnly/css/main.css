@@ -211,6 +211,10 @@ input {
   height: 48px;
 }
 
+.formData {
+  position: relative;
+}
+
 .formData[data-error]::after {
   content: attr(data-error);
   font-size: 0.4em;
@@ -232,7 +236,7 @@ input {
   border: 2px solid #e54858;
 }
 
-/* 
+/*
 input[data-error]::after {
     content: attr(data-error);
     font-size: 0.4em;
@@ -280,7 +284,10 @@ input[data-error]::after {
 }
 
 .checkbox-input {
-  display: none;
+  /* display: none; */
+  position: absolute;
+  opacity: 0;
+  z-index: -10;
 }
 
 .checkbox-input:checked + .checkbox-label .checkbox-icon::after,
@@ -355,6 +362,49 @@ input[data-error]::after {
 
 .btn-submit:disabled {
   background: #e2adb5;
+  cursor: not-allowed;
+}
+
+.formBtn span {
+  display: inline-block;
+  position: absolute;
+  width:200px;
+  left:50%;
+  margin-left: -100px;
+  bottom: 80px;
+  padding: 20px 10px;
+  background: #fe142f;
+  font-size: .6em;
+  border: 2px solid #ebcfd3;
+  color: #ebcfd3;
+  text-align: center;
+  border-radius: 10px;
+  transition: 0.5s;
+  z-index:-1;
+  opacity:0;
+}
+.formBtn span::before {
+  display: block;
+  position: absolute;
+  bottom: -10px;
+  left:50%;
+  margin-left: -5px;
+  content:"";
+  border-top: 10px  solid #ebcfd3;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 0;
+}
+
+#alert.alert-show{
+  background: #ebcfd3;
+  color: #fe142f;
+}
+
+#submit:hover:disabled ~ span, #alert.alert-show{
+  content: "test";
+  z-index:2;
+  opacity:1;
 }
 
 /* custom select styles */
