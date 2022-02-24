@@ -60,11 +60,11 @@
             <form id="reserve" action="index.html" name="reserve" method="get" onsubmit="return validate();" novalidate>
               <div class="formData">
                 <label for="first">Prénom</label><br>
-                <input class="text-control" type="text" id="first" pattern="^([A-Za-z]*\s*[-]*){2,}$" name="first" required><br>
+                <input class="text-control" type="text" id="first" pattern="^[A-Za-z\s-]{2,}$" name="first" required><br>
               </div>
               <div class="formData" >
                 <label for="last">Nom</label><br>
-                <input class="text-control" type="text" id="last" pattern="^([A-Za-z]*\s*[-]*){2,}$" name="last" required><br>
+                <input class="text-control" type="text" id="last" pattern="^[A-Za-z\s-]{2,}$" name="last" required><br>
               </div>
               <div class="formData">
                 <label for="email">E-mail</label><br>
