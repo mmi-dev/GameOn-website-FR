@@ -26,13 +26,13 @@ var firstNameMsg2 = "Le prénom doit comporter au minimum 2 caractères";
 var lastNameMsg1 = "vous devez entrer votre nom";
 var lastNameMsg2 = "Le nom doit comporter au minimum 2 caractères";
 
-var emailMsg1 = "Vous devez entrer votre email."; // field not required 
+var emailMsg1 = "Vous devez entrer votre email."; // field not required for the moment
 var emailMsg2 = "L'email n'est pas valide";
 
-var birthdateMsg1 = "Vous devez entrer votre date de naissance."; // field not required 
+var birthdateMsg1 = "Vous devez entrer votre date de naissance."; // field not required for the moment
 var birthdateMsg2 = "La date de naissance n'est pas valide.";
 
-var quantityMsg1 = "Vous devez enter un nombre."; // field not required 
+var quantityMsg1 = "Vous devez enter un nombre."; // field not required for the moment
 var quantityMsg2 = "le nombre doit être compris entre 0 et 99";
 
 var locationMsg = "vous devez selectionner un tournoi";
@@ -50,7 +50,7 @@ function inputValidation (e, msg1, msg2){
             e.parentElement.removeAttribute("data-error");
         }
     }
-    else if(!e.value.match(e.getAttribute("pattern"))){
+    else if(e.validity.valid !== true){
         e.parentElement.setAttribute("data-error-visible","true");
         e.parentElement.setAttribute("data-error",msg2);
         validation = false;
