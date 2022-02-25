@@ -13,6 +13,13 @@ var conditionsAgreement = document.getElementById("checkbox1");
 var eventsInfo = document.getElementById("checkbox2");
 var submitForm = document.getElementById("submitBtn");
 
+var d = new Date() // now
+var birthdateMax = d.getFullYear() + "-" + (d.getMonth()+1).toLocaleString('fr-FR', {minimumIntegerDigits: 2,useGrouping: false}) + "-" + d.getDate().toLocaleString('fr-FR', {minimumIntegerDigits: 2,useGrouping: false});  // formating today date 
+// set max date for Birthdays
+window.onload=function(){
+    birthdate.setAttribute("max",birthdateMax);
+  };
+
 var errorAlert = document.getElementById("alert");
 var alertBase = errorAlert.innerHTML;
 
@@ -83,6 +90,9 @@ birthdate.addEventListener('change', function(){
 
 // number name validation on change
 quantity.addEventListener('change', function(){
+    if(this.value == ""){ // reset input value if return null (ex. "-2+" or "+2" or "2+" ...)
+        this.value = ""
+    }
     inputValidation(quantity, quantityMsg1, quantityMsg2);
 });
 
