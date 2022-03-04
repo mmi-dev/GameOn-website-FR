@@ -13,12 +13,12 @@ var conditionsAgreement = document.getElementById("checkbox1");
 var eventsInfo = document.getElementById("checkbox2");
 var submitForm = document.getElementById("submitBtn");
 
-var d = new Date() // now
+var d = new Date(); // now
 var birthdateMax = d.getFullYear() + "-" + (d.getMonth()+1).toLocaleString('fr-FR', {minimumIntegerDigits: 2,useGrouping: false}) + "-" + d.getDate().toLocaleString('fr-FR', {minimumIntegerDigits: 2,useGrouping: false});  // formating today date 
 // set max date for Birthdays
-window.onload=function(){
+birthdate.addEventListener('focus', function(){
     birthdate.setAttribute("max",birthdateMax);
-  };
+  });
 
 var errorAlert = document.getElementById("alert");
 var alertBase = errorAlert.innerHTML;
