@@ -397,7 +397,7 @@ input {
   text-align: center;
 }
 
-#confirmation-btn{
+.btn-close{
   position: absolute;
   left:50%;
   transform: translateX(-50%);
@@ -651,15 +651,15 @@ footer {
     height:100vh;
     margin: auto;
     border-radius: 0;
-    padding-top: 30px 0;
+    padding-top: 30px;
   }
   .modal-body{
     max-width:600px;
     height: 100%;
     overflow: auto;
   }
-  .btn-submit{
-    margin-bottom: 30px;;
+  .btn-submit, .btn-close{
+    margin-bottom: 50px;;
   }
 }
 

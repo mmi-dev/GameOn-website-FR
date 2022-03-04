@@ -14,8 +14,6 @@ function launchModal() {
 
 // close modal event
 modalCloseBtn.forEach((btn) => btn.addEventListener("click", closeModal));
-// modalCloseMsgBtn.forEach((btn) => btn.addEventListener("click", closeModal));
-// modalConfirmationCloseBtn.addEventListener("click", closeModal);
 
 // close modal form
 function closeModal() {
@@ -26,7 +24,7 @@ function closeModal() {
     form.style.opacity = 1;
     form.style.visibility = "visible";
     // refresh window
-    window.location.href="index.html"
+    window.location.href="index.html";
   }
 }
 
@@ -40,7 +38,7 @@ function confirmationModal() {
   
 }
 
-// control submit status on load to shox confirmation message
+// control submit status on load to show confirmation message
 window.onload=function(){
   if(successStatus == "success"){
     confirmationModal();
