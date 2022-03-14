@@ -28,10 +28,10 @@ var validation = ""; // validation state
 // error messages
 
 var firstNameMsg1 = "Vous devez entrer votre prénom.";
-var firstNameMsg2 = "Le prénom doit comporter au minimum 2 caractères";
+var firstNameMsg2 = "Le prénom doit comporter au minimum 2 caractères et uniquement des lettres";
 
 var lastNameMsg1 = "vous devez entrer votre nom";
-var lastNameMsg2 = "Le nom doit comporter au minimum 2 caractères";
+var lastNameMsg2 = "Le nom doit comporter au minimum 2 caractères et uniquement des lettres";
 
 var emailMsg1 = "Vous devez entrer votre email."; // field not required for the moment
 var emailMsg2 = "L'email n'est pas valide";
